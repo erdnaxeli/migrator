@@ -2,14 +2,14 @@
 
 Migrator is a golang library to apply migrations on a database.
 
-# Why another tools?
+# Why another tool?
 
 Existing tools provide a lot of features but are complex and come with many dependencies.
 The goal of this tool is to be simple, and without any dependencies.
 
 # Usage
 
-Create a migration like this:
+Create a migration file named `001_test_table.sql` :
 ```sql
 -- +migrate Up
 CREATE TABLE test_table (
@@ -17,6 +17,10 @@ CREATE TABLE test_table (
     name TEXT NOT NULL
 );
 ```
+
+Migrations files must start with digits, then an underscore, then anything, then have the extension `.sql`.
+
+Then you can use the libray like this:
 
 ```go
 package main
