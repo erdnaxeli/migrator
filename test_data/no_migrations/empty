@@ -1,0 +1,5 @@
+"//go:embed" needs to embed at least one file,
+so here it is: one file that is not SQL.
+
+Plus git can only track files, not empty directories,
+so we need this file anyway.

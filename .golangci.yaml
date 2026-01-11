@@ -1,0 +1,29 @@
+# Defines the configuration version.
+# The only possible value is "2".
+version: "2"
+linters:
+  enable:
+    - cyclop
+    - err113
+    - errname
+    - exhaustive
+    - exptostd
+    - gocritic
+    - revive
+  exclusions:
+    rules:
+      - path: "example/main.go"
+        text: "package-comments: should have a package comment"
+      - path: ".*_test.go"
+        linters:
+          - errcheck
+          - cyclop
+formatters:
+  enable:
+    - gofumpt
+    - goimports
+    - golines
+  settings:
+    goimports:
+        local-prefixes:
+          - github.com/erdnaxeli/migrator
