@@ -1,1 +1,1 @@
-example/db.sqlite
+examples/**/db.sqlite

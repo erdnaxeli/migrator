@@ -1,4 +1,4 @@
-name: Dev - CI/CD
+name: Lint
 on:
   pull_request:
 
