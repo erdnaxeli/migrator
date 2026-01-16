@@ -12,4 +12,4 @@ jobs:
         with:
           go-version-file: 'go.mod'
       - name: tests
-        run: go test ./...
+        run: make test
