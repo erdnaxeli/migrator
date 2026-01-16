@@ -1,29 +1,14 @@
 package migrator_test
 
 import (
-	"database/sql"
-	"io/fs"
 	"testing"
-
-	"github.com/erdnaxeli/migrator"
 )
 
 func TestVersion(t *testing.T) {
-	db, err := sql.Open("sqlite", ":memory:")
-	if err != nil {
-		t.Fatalf("failed to open in-memory database: %v", err)
-	}
+	t.Parallel()
+
+	db, migrator := getDBAndMigrator(t, migrationsOKFS)
 	defer db.Close()
-
-	subFS, err := fs.Sub(migrationsOKFS, "test_data/migrations_ok")
-	if err != nil {
-		t.Fatalf("failed to get sub filesystem: %v", err)
-	}
-
-	migrator, err := migrator.New(db, subFS)
-	if err != nil {
-		t.Fatalf("failed to create migrator: %v", err)
-	}
 
 	version, err := migrator.Version()
 	if err != nil {
